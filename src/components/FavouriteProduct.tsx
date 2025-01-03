@@ -22,7 +22,7 @@ interface cartProductProps{
     item:Item
 }
 
-const favouriteProduct = ({item}:cartProductProps) => {
+const FavouriteProduct = ({item}:cartProductProps) => {
   const dispatch=useDispatch();
   return (
     <div className='bg-gray-100 rounded-lg flex flex-col md:flex-row py-2 items-center gap-4 mb-2'>
@@ -38,6 +38,7 @@ const favouriteProduct = ({item}:cartProductProps) => {
               </span>
             </p>
             <div className='flex gap-5'>
+            {/*eslint-disable-next-line @typescript-eslint/no-unused-expressions*/}
             <button onClick={()=>{dispatch(addToCart({
               _id:item._id,
               brand:item.brand,
@@ -66,4 +67,4 @@ const favouriteProduct = ({item}:cartProductProps) => {
   )
 }
 
-export default favouriteProduct
+export default FavouriteProduct

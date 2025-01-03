@@ -14,6 +14,7 @@ export default function Home({productData}:Props) {
   const dispatch=useDispatch();
   useEffect(()=>{
     dispatch(setAllProducts({allProducts:productData}))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   },[productData]);
   return (
     <main>

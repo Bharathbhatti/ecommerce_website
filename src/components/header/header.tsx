@@ -2,14 +2,13 @@
 import logo from "../../images/shopping.jpg";
 import cart from "../../images/cart.png"
 import Image from "next/image";
-import { BiCaretDown } from "react-icons/bi";
 import { HiOutlineSearch } from "react-icons/hi";
 import { SlLocationPin } from "react-icons/sl";
 import { FaUser } from "react-icons/fa";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import { StateProps, StoreProduct } from "../../../type";
-import { useSession,signIn,signOut } from "next-auth/react";
+import { useSession,signIn} from "next-auth/react";
 import { useEffect, useState } from "react";
 import { addUser } from "@/store/nextSlice";
 import SearchProducts from "../SearchProducts";
@@ -27,6 +26,7 @@ const Header = () => {
         image:session?.user?.image,
       }))
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   },[session]);
   //Search Area
 
@@ -45,6 +45,7 @@ const Header = () => {
   useEffect(()=>{
     const filtered=allData.filter((item:StoreProduct)=>item.title.toLocaleLowerCase().includes(searchQuery.toLowerCase()));
     setfilteredProducts(filtered);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   },[searchQuery]);
   
   return (
@@ -52,7 +53,7 @@ const Header = () => {
         <div className="h-full w-full mx-auto inline-flex items-center justify-between gap-1 mdl:gap-3 px-4">
           {/*Logo*/}
           <Link href={"/"} className="px-2 border border-transparent hover:border-white cursor-pointer duration-300 flex items-center justify-center h-[70%] scale-90 hover:scale-150 ">
-            <Image className="w-20 h-12 object-cover" src={logo} alt="logoImg"/>
+            <Image width={550} height={550} className="w-20 h-12 object-cover" src={logo} alt="logoImg"/>
           </Link>
           {/*Delivery*/}
           <div className="px-2 border border-transparent hover:border-white cursor-pointer duration-300  items-center justify-center h-[70%] hidden xl:inline-flex gap-1">
@@ -109,7 +110,7 @@ const Header = () => {
           {
             userInfo?(
             <div className="flex items-center px-2 border border-transparent hover:border-white cursor-pointer duration-300 h-[70%] gap-1">
-            <img className="w-8 h-8 rounded-full object-cover" src={userInfo.image} alt="USerImg"/>
+            <Image width={50} height={50} className="w-8 h-8 rounded-full object-cover" src={userInfo.image} alt="USerImg"/>
             <div className="text-xs text-gray-100 flex flex-col justify-between">
               <p className="text-white font-bold">{userInfo.name}</p>
               <p>{userInfo.email}</p>

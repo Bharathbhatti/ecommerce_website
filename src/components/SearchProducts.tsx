@@ -1,5 +1,6 @@
 import React from 'react';
 import FormattedPrice from './FormattedPrice';
+import Image from 'next/image';
 
 
 interface Props{
@@ -21,7 +22,7 @@ type Item={
 const SearchProducts = ({item}:Item) => {
   return (
     <div className='flex  items-center gap-4'>
-        <img className='w-24' src={item.image} alt='ProductImg'/>
+        <Image width={50} height={50} className='w-24' src={item.image} alt='ProductImg'/>
         <div className='text-xs -mb-1'>
             <p>{item.brand}_{item.category}</p>
             <p className='text-lg font-medium'>{item.title}</p>

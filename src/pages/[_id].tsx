@@ -8,6 +8,7 @@ import { addToCart, addToFavourite } from '@/store/nextSlice';
 import FormattedPrice from '@/components/FormattedPrice';
 
 const DynamicPage = () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const [product,setProduct]=useState<any>({});
     const router=useRouter();
     useEffect(()=>{

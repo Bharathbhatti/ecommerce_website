@@ -1,6 +1,10 @@
 import { NextApiRequest,NextApiResponse } from "next";
 import { StoreProduct } from "../../../type";
-const stripe=require('stripe')(process.env.STRIPE_SECRET_KEY)
+
+
+// eslint-disable-next-line @typescript-eslint/no-require-imports 
+const stripe=require("stripe")(process.env.STRIPE_SECRET_KEY);
+
 
 export default async function handler(req:NextApiRequest,res:NextApiResponse){
     const {items,email}=req.body;
@@ -27,6 +31,7 @@ export default async function handler(req:NextApiRequest,res:NextApiResponse){
         cancel_url:`${process.env.NEXTAUTH_URL}/checkout`,
         metadata:{
             email,
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             images:JSON.stringify(items.map((item:any)=>item.image)),
         },
     });

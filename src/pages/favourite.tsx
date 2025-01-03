@@ -5,7 +5,7 @@ import FavouriteProduct from '@/components/FavouriteProduct';
 import ResetFavourite from '@/components/ResetFavourite';
 import Link from 'next/link';
 
-const favourite = () => {
+const Favourite = () => {
     const {favouriteData}=useSelector((state:StateProps)=>state.next);
   return (
     <div className='max-w-screen-xl mx-auto px-6 gap-10 py-4'>
@@ -39,4 +39,4 @@ const favourite = () => {
   )
 }
 
-export default favourite
+export default Favourite
